@@ -1,0 +1,82 @@
+.for-whom {
+  background-color: var(--secondaryBackground);
+}
+
+.for-whom .container {
+  padding-top: 60px;
+  padding-bottom: 30px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.for-whom__title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.for-whom .title {
+  margin-bottom: 12px;
+}
+
+.for-whom .subtitle {
+  margin-bottom: 32px;
+}
+
+.for-whom__cards {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .for-whom .container {
+    padding-top: 90px;
+    padding-bottom: 60px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .for-whom .title {
+    margin-bottom: 14px;
+  }
+
+  .for-whom .subtitle {
+    margin-bottom: 40px;
+  }
+
+  .for-whom__cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .for-whom .container {
+    padding-top: 120px;
+    padding-bottom: 90px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .for-whom .title {
+    margin-bottom: 16px;
+  }
+
+  .for-whom .subtitle {
+    margin-bottom: 48px;
+  }
+
+  .for-whom__cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+}

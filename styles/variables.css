@@ -1,0 +1,29 @@
+:root {
+  --primaryBackground: #FFFFFF;
+  --secondaryBackground: #F5F1E8;
+  --thirdBackground: #2C2C2C;
+
+  --buttonBgColor: #C9A227;
+  --buttonBgColorHover: #B38F1F;
+
+  --primaryColor: #0F1F3D;
+  --secondaryColor: rgba(15, 31, 61, 0.8);
+  --thirdColor: rgba(15, 31, 61, 0.7);
+
+  --paddingContainer: 16px;
+  --widthContainer: 375px;
+}
+
+@media (min-width: 375px) {
+  :root {
+    --paddingContainer: 48px;
+    --widthContainer: 768px;
+  }
+}
+
+@media (min-width: 1440px) {
+  :root {
+    --paddingContainer: 80px;
+    --widthContainer: 1440px;
+  }
+}

@@ -1,0 +1,11 @@
+export { default as Hero } from "./sections/Hero/Hero";
+export { default as Team } from "./sections/Team/Team";
+export { default as About } from "./sections/About/About";
+export { default as Author } from "./sections/Author/Author";
+export { default as Thanks } from "./sections/Thanks/Thanks";
+export { default as Header } from "./sections/Header/Header";
+export { default as Footer } from "./sections/Footer/Footer";
+export { default as Program } from "./sections/Program/Program";
+export { default as ForWhom } from "./sections/ForWhom/ForWhom";
+export { default as Schedule } from "./sections/Schedule/Schedule";
+export { default as Registration } from "./sections/Registration/Registration";

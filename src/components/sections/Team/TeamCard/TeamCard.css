@@ -1,0 +1,55 @@
+.team-card {
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+
+  min-width: 300px;
+  min-height: 400px;
+}
+
+.team-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(15, 31, 61, 0.92) 0%,
+    rgba(15, 31, 61, 0.05) 35%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+.team-card img {
+  object-fit: cover;
+}
+
+.team-card__label {
+  position: absolute;
+  top: calc(100% - 104px);
+  left: 0;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  padding: 12px 24px;
+  gap: 4px;
+
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.team-card__label-name {
+  font-family: var(--font-playfair), serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #FFFFFF;
+}
+
+.team-card__label-role {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: rgba(250, 249, 246, 0.8);
+}
