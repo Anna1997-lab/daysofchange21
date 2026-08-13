@@ -4,60 +4,60 @@ import Image from "next/image";
 import "./Thanks.css";
 
 export default function Thanks() {
-  const [titleVisible, setTitleVisible] = useState(false);
-  const [textVisible, setTextVisible] = useState(false);
+  // const [titleVisible, setTitleVisible] = useState(false);
+  // const [textVisible, setTextVisible] = useState(false);
 
-  const titleRef = useRef<HTMLDivElement>(null);
-  const textRef = useRef<HTMLDivElement>(null);
+  // const titleRef = useRef<HTMLDivElement>(null);
+  // const textRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    // const isDesktop = window.innerWidth >= 1440;
+  // useEffect(() => {
+  //   // const isDesktop = window.innerWidth >= 1440;
 
-    // if (!isDesktop) {
-    //   setTitleVisible(true);
-    //   setTextVisible(true);
+  //   // if (!isDesktop) {
+  //   //   setTitleVisible(true);
+  //   //   setTextVisible(true);
 
-    //   return;
-    // }
+  //   //   return;
+  //   // }
 
-    if (typeof window === "undefined" || !("IntersectionObserver" in window)) {
-      setTitleVisible(true);
-      setTextVisible(true);
+  //   if (typeof window === "undefined" || !("IntersectionObserver" in window)) {
+  //     setTitleVisible(true);
+  //     setTextVisible(true);
 
-      return;
-    }
+  //     return;
+  //   }
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
+  //   const observer = new IntersectionObserver(
+  //     (entries) => {
+  //       entries.forEach((entry) => {
+  //         if (!entry.isIntersecting) return;
 
-          if (entry.target === titleRef.current) setTitleVisible(true);
-          if (entry.target === textRef.current) setTextVisible(true);
+  //         if (entry.target === titleRef.current) setTitleVisible(true);
+  //         if (entry.target === textRef.current) setTextVisible(true);
 
-          observer.unobserve(entry.target);
-        });
-      }, {
-        threshold: 0.2,
-        rootMargin: "0px 0px -25px 0px",
-      }
-    );
+  //         observer.unobserve(entry.target);
+  //       });
+  //     }, {
+  //       threshold: 0.2,
+  //       rootMargin: "0px 0px -25px 0px",
+  //     }
+  //   );
 
-    if (titleRef.current) observer.observe(titleRef.current);
-    if (textRef.current) observer.observe(textRef.current);
+  //   if (titleRef.current) observer.observe(titleRef.current);
+  //   if (textRef.current) observer.observe(textRef.current);
 
-    return () => observer.disconnect();
-  }, []);
+  //   return () => observer.disconnect();
+  // }, []);
 
-  const baseStyle = {
-    transition: "opacity 0.75s ease, transform 0.75s ease",
-  };
+  // const baseStyle = {
+  //   transition: "opacity 0.75s ease, transform 0.75s ease",
+  // };
 
-  const fromBottom = (visible: boolean) => ({
-    ...baseStyle,
-    opacity: visible ? 1 : 0,
-    transform: visible ? "translateY(0)" : "translateY(100px)",
-  });
+  // const fromBottom = (visible: boolean) => ({
+  //   ...baseStyle,
+  //   opacity: visible ? 1 : 0,
+  //   transform: visible ? "translateY(0)" : "translateY(100px)",
+  // });
 
   return (
     <section className="thanks" id="thanks">
@@ -70,10 +70,10 @@ export default function Thanks() {
       />
       <div className="container">
         <div
-          ref={titleRef}
+          // ref={titleRef}
           className="thanks__title-container"
           style={{
-            ...fromBottom(titleVisible)
+            // ...fromBottom(titleVisible)
           }}
         >
           <Image
@@ -91,11 +91,11 @@ export default function Thanks() {
         </div>
 
         <div
-          ref={textRef}
+          // ref={textRef}
           className="thanks__text-container"
-          style={{
-            ...fromBottom(textVisible)
-          }}
+          // style={{
+          //   // ...fromBottom(textVisible)
+          // }}
         >
           <div className="thanks__texts">
             <p className="thanks__text">

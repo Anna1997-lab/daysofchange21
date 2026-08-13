@@ -1,6 +1,7 @@
 .header {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   z-index: 100;
   /* background-color: rgba(255, 255, 255, 1); */
@@ -9,6 +10,9 @@
   /* box-shadow: 0 2px 16px rgba(15, 31, 61, 0.1); */
 
   padding: 20px 0;
+
+  /* box-shadow: 0 2px 16px rgba(15, 31, 61, 0.1); */
+  /* background-color: #fff; */
 }
 
 .header .container {
@@ -60,11 +64,13 @@
   height: fit-content;
   width: fit-content;
 
-  text-align: center;
+  /* text-align: center; */
 }
 
 @media (min-width: 768px) {
-
+  .header {
+    width: 100vw;
+  }
 }
 
 @media (min-width: 1440px) {

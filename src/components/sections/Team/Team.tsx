@@ -4,80 +4,80 @@ import { slidesDesktop, slidesTablet, slidesMobile } from "./slides";
 import "./Team.css";
 
 export default function Team() {
-  const [titleVisible, setTitleVisible] = useState(false);
-  const [teamCardsVisible, setTeamCardsVisible] = useState(false);
+  // const [titleVisible, setTitleVisible] = useState(false);
+  // const [teamCardsVisible, setTeamCardsVisible] = useState(false);
 
-  const titleRef = useRef<HTMLHeadingElement>(null);
-  const teamCardsRef = useRef<HTMLDivElement>(null);
+  // const titleRef = useRef<HTMLHeadingElement>(null);
+  // const teamCardsRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    // const isDesktop = window.innerWidth >= 1440;
+  // useEffect(() => {
+  //   // const isDesktop = window.innerWidth >= 1440;
 
-    // if (!isDesktop) {
-    //   setTitleVisible(true);
-    //   setTeamCardsVisible(true);
+  //   // if (!isDesktop) {
+  //   //   setTitleVisible(true);
+  //   //   setTeamCardsVisible(true);
 
-    //   return;
-    // }
+  //   //   return;
+  //   // }
 
-    if (typeof window === "undefined" || !("IntersectionObserver" in window)) {
-      setTitleVisible(true);
-      setTeamCardsVisible(true);
+  //   if (typeof window === "undefined" || !("IntersectionObserver" in window)) {
+  //     setTitleVisible(true);
+  //     setTeamCardsVisible(true);
 
-      return;
-    }
+  //     return;
+  //   }
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
+  //   const observer = new IntersectionObserver(
+  //     (entries) => {
+  //       entries.forEach((entry) => {
+  //         if (!entry.isIntersecting) return;
 
-          if (entry.target === titleRef.current) setTitleVisible(true);
-          if (entry.target === teamCardsRef.current) setTeamCardsVisible(true);
+  //         if (entry.target === titleRef.current) setTitleVisible(true);
+  //         if (entry.target === teamCardsRef.current) setTeamCardsVisible(true);
 
-          observer.unobserve(entry.target);
-        });
-      }, {
-        threshold: 0.2,
-        rootMargin: "0px 0px -25px 0px",
-      }
-    );
+  //         observer.unobserve(entry.target);
+  //       });
+  //     }, {
+  //       threshold: 0.2,
+  //       rootMargin: "0px 0px -25px 0px",
+  //     }
+  //   );
 
-    if (titleRef.current) observer.observe(titleRef.current);
-    if (teamCardsRef.current) observer.observe(teamCardsRef.current);
+  //   if (titleRef.current) observer.observe(titleRef.current);
+  //   if (teamCardsRef.current) observer.observe(teamCardsRef.current);
 
-    return () => observer.disconnect();
-  }, []);
+  //   return () => observer.disconnect();
+  // }, []);
 
-  const baseStyle = {
-    transition: "opacity 0.75s ease, transform 0.75s ease",
-  };
+  // const baseStyle = {
+  //   transition: "opacity 0.75s ease, transform 0.75s ease",
+  // };
 
-  const fromBottom = (visible: boolean) => ({
-    ...baseStyle,
-    opacity: visible ? 1 : 0,
-    transform: visible ? "translateY(0)" : "translateY(100px)",
-  });
+  // const fromBottom = (visible: boolean) => ({
+  //   ...baseStyle,
+  //   opacity: visible ? 1 : 0,
+  //   transform: visible ? "translateY(0)" : "translateY(100px)",
+  // });
 
   return (
     <section className="team" id="team">
       <div className="container">
         <h2
-          ref={titleRef}
+          // ref={titleRef}
           className="title"
           style={{
-            ...fromBottom(titleVisible)
+            // ...fromBottom(titleVisible)
           }}
         >
           {"Благодарность"}
         </h2>
 
         <div
-          ref={teamCardsRef}
+          // ref={teamCardsRef}
           className="team__slider-desktop"
-          style={{
-            ...fromBottom(teamCardsVisible)
-          }}
+          // style={{
+          //   ...fromBottom(teamCardsVisible)
+          // }}
         >
           <InfiniteSlider slides={slidesDesktop} />
         </div>

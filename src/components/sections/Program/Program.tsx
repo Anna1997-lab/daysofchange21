@@ -4,70 +4,70 @@ import { dailyItems } from "./data";
 import "./Program.css";
 
 export default function Program() {
-  const [titleVisible, setTitleVisible] = useState(false);
-  const [capsulesVisible, setCapsulesVisible] = useState(false);
+  // const [titleVisible, setTitleVisible] = useState(false);
+  // const [capsulesVisible, setCapsulesVisible] = useState(false);
 
-  const titleRef = useRef<HTMLDivElement>(null);
-  const capsulesRef = useRef<HTMLDivElement>(null);
+  // const titleRef = useRef<HTMLDivElement>(null);
+  // const capsulesRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    // const isDesktop = window.innerWidth >= 1440;
+  // useEffect(() => {
+  //   // const isDesktop = window.innerWidth >= 1440;
 
-    // if (!isDesktop) {
-    //   setTitleVisible(true);
-    //   setCapsulesVisible(true);
+  //   // if (!isDesktop) {
+  //   //   setTitleVisible(true);
+  //   //   setCapsulesVisible(true);
 
-    //   return;
-    // }
+  //   //   return;
+  //   // }
 
-    if (typeof window === "undefined" || !("IntersectionObserver" in window)) {
-      setTitleVisible(true);
-      setCapsulesVisible(true);
+  //   if (typeof window === "undefined" || !("IntersectionObserver" in window)) {
+  //     setTitleVisible(true);
+  //     setCapsulesVisible(true);
 
-      return;
-    }
+  //     return;
+  //   }
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
+  //   const observer = new IntersectionObserver(
+  //     (entries) => {
+  //       entries.forEach((entry) => {
+  //         if (!entry.isIntersecting) return;
 
-          if (entry.target === titleRef.current) setTitleVisible(true);
-          if (entry.target === capsulesRef.current) setCapsulesVisible(true);
+  //         if (entry.target === titleRef.current) setTitleVisible(true);
+  //         if (entry.target === capsulesRef.current) setCapsulesVisible(true);
 
-          observer.unobserve(entry.target);
-        });
-      }, {
-        threshold: 0.2,
-        rootMargin: "0px 0px -25px 0px",
-      }
-    );
+  //         observer.unobserve(entry.target);
+  //       });
+  //     }, {
+  //       threshold: 0.2,
+  //       rootMargin: "0px 0px -25px 0px",
+  //     }
+  //   );
 
-    if (titleRef.current) observer.observe(titleRef.current);
-    if (capsulesRef.current) observer.observe(capsulesRef.current);
+  //   if (titleRef.current) observer.observe(titleRef.current);
+  //   if (capsulesRef.current) observer.observe(capsulesRef.current);
 
-    return () => observer.disconnect();
-  }, []);
+  //   return () => observer.disconnect();
+  // }, []);
 
-  const baseStyle = {
-    transition: "opacity 0.75s ease, transform 0.75s ease",
-  };
+  // const baseStyle = {
+  //   transition: "opacity 0.75s ease, transform 0.75s ease",
+  // };
 
-  const fromBottom = (visible: boolean) => ({
-    ...baseStyle,
-    opacity: visible ? 1 : 0,
-    transform: visible ? "translateY(0)" : "translateY(100px)",
-  });
+  // const fromBottom = (visible: boolean) => ({
+  //   ...baseStyle,
+  //   opacity: visible ? 1 : 0,
+  //   transform: visible ? "translateY(0)" : "translateY(100px)",
+  // });
 
   return (
     <section className="program" id="program">
       <div className="container">
         <div
-          ref={titleRef}
+          // ref={titleRef}
           className="program__title"
-          style={{
-            ...fromBottom(titleVisible)
-          }}
+          // style={{
+          //   ...fromBottom(titleVisible)
+          // }}
         >
           <h2 className="title">
             {"Что будет в течение 21 дня?"}
@@ -78,11 +78,11 @@ export default function Program() {
         </div>
 
         <div
-          ref={capsulesRef}
+          // ref={capsulesRef}
           className="program__capsules"
-          style={{
-            ...fromBottom(capsulesVisible)
-          }}
+          // style={{
+          //   ...fromBottom(capsulesVisible)
+          // }}
         >
           <div className="program__capsules-row">
             {

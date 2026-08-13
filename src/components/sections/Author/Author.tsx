@@ -6,117 +6,117 @@ import InfiniteSlider from "./InfiniteSlider";
 import "./Author.css";
 
 export default function Author() {
-  const [titleVisible, setTitleVisible] = useState(false);
-  const [photoVisible, setPhotoVisible] = useState(false);
-  const [infoVisible, setInfoVisible] = useState(false);
-  const [sliderVisible, setSliderVisible] = useState(false);
+  // const [titleVisible, setTitleVisible] = useState(false);
+  // const [photoVisible, setPhotoVisible] = useState(false);
+  // const [infoVisible, setInfoVisible] = useState(false);
+  // const [sliderVisible, setSliderVisible] = useState(false);
 
-  const titleRef = useRef<HTMLHeadingElement>(null);
-  const photoRef = useRef<HTMLImageElement>(null);
-  const infoRef = useRef<HTMLDivElement>(null);
-  const sliderRef = useRef<HTMLDivElement>(null);
+  // const titleRef = useRef<HTMLHeadingElement>(null);
+  // const photoRef = useRef<HTMLImageElement>(null);
+  // const infoRef = useRef<HTMLDivElement>(null);
+  // const sliderRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    // const isDesktop = window.innerWidth >= 1440;
+  // useEffect(() => {
+  //   // const isDesktop = window.innerWidth >= 1440;
 
-    // if (!isDesktop) {
-    //   setTitleVisible(true);
-    //   setPhotoVisible(true);
-    //   setInfoVisible(true);
-    //   setSliderVisible(true);
+  //   // if (!isDesktop) {
+  //   //   setTitleVisible(true);
+  //   //   setPhotoVisible(true);
+  //   //   setInfoVisible(true);
+  //   //   setSliderVisible(true);
 
-    //   return;
-    // }
+  //   //   return;
+  //   // }
 
-    if (typeof window === "undefined" || !("IntersectionObserver" in window)) {
-      setTitleVisible(true);
-      setPhotoVisible(true);
-      setInfoVisible(true);
-      setSliderVisible(true);
+  //   if (typeof window === "undefined" || !("IntersectionObserver" in window)) {
+  //     setTitleVisible(true);
+  //     setPhotoVisible(true);
+  //     setInfoVisible(true);
+  //     setSliderVisible(true);
 
-      return;
-    }
+  //     return;
+  //   }
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
+  //   const observer = new IntersectionObserver(
+  //     (entries) => {
+  //       entries.forEach((entry) => {
+  //         if (!entry.isIntersecting) return;
 
-          if (entry.target === titleRef.current) setTitleVisible(true);
-          if (entry.target === photoRef.current) setPhotoVisible(true);
-          if (entry.target === infoRef.current) setInfoVisible(true);
-          if (entry.target === sliderRef.current) setSliderVisible(true);
+  //         if (entry.target === titleRef.current) setTitleVisible(true);
+  //         if (entry.target === photoRef.current) setPhotoVisible(true);
+  //         if (entry.target === infoRef.current) setInfoVisible(true);
+  //         if (entry.target === sliderRef.current) setSliderVisible(true);
 
-          observer.unobserve(entry.target);
-        });
-      }, {
-        threshold: 0.2,
-        rootMargin: "0px 0px -25px 0px",
-      }
-    );
+  //         observer.unobserve(entry.target);
+  //       });
+  //     }, {
+  //       threshold: 0.2,
+  //       rootMargin: "0px 0px -25px 0px",
+  //     }
+  //   );
 
-    if (titleRef.current) observer.observe(titleRef.current);
-    if (photoRef.current) observer.observe(photoRef.current);
-    if (infoRef.current) observer.observe(infoRef.current);
-    if (sliderRef.current) observer.observe(sliderRef.current);
+  //   if (titleRef.current) observer.observe(titleRef.current);
+  //   if (photoRef.current) observer.observe(photoRef.current);
+  //   if (infoRef.current) observer.observe(infoRef.current);
+  //   if (sliderRef.current) observer.observe(sliderRef.current);
 
-    return () => observer.disconnect();
-  }, []);
+  //   return () => observer.disconnect();
+  // }, []);
 
-  const baseStyle = {
-    transition: "opacity 0.75s ease, transform 0.75s ease",
-  };
+  // const baseStyle = {
+  //   transition: "opacity 0.75s ease, transform 0.75s ease",
+  // };
 
-  const fromBottom = (visible: boolean) => ({
-    ...baseStyle,
-    opacity: visible ? 1 : 0,
-    transform: visible ? "translateY(0)" : "translateY(100px)",
-  });
+  // const fromBottom = (visible: boolean) => ({
+  //   ...baseStyle,
+  //   opacity: visible ? 1 : 0,
+  //   transform: visible ? "translateY(0)" : "translateY(100px)",
+  // });
 
-  const fromLeft = (visible: boolean) => ({
-    ...baseStyle,
-    opacity: visible ? 1 : 0,
-    transform: visible ? 'translateX(0)' : 'translateX(-100px)',
-  });
+  // const fromLeft = (visible: boolean) => ({
+  //   ...baseStyle,
+  //   opacity: visible ? 1 : 0,
+  //   transform: visible ? 'translateX(0)' : 'translateX(-100px)',
+  // });
 
-  const fromRight = (visible: boolean) => ({
-    ...baseStyle,
-    opacity: visible ? 1 : 0,
-    transform: visible ? 'translateX(0)' : 'translateX(100px)',
-  });
+  // const fromRight = (visible: boolean) => ({
+  //   ...baseStyle,
+  //   opacity: visible ? 1 : 0,
+  //   transform: visible ? 'translateX(0)' : 'translateX(100px)',
+  // });
 
   return (
     <section className="author">
       <div className="container">
         <h2
-          ref={titleRef}
+          // ref={titleRef}
           className="title"
-          style={{
-            ...fromBottom(titleVisible)
-          }}
+          // style={{
+          //   ...fromBottom(titleVisible)
+          // }}
         >
           {"Автор проекта"}
         </h2>
 
         <div className="author__info">
           <Image
-            ref={photoRef}
+            // ref={photoRef}
             src="/images/author.png"
             alt="author image"
             width={420}
             height={525}
             className="author__info-img"
-            style={{
-              ...fromLeft(photoVisible)
-            }}
+            // style={{
+            //   ...fromLeft(photoVisible)
+            // }}
           />
 
           <div
-            ref={infoRef}
+            // ref={infoRef}
             className="author__info-right"
-            style={{
-              ...fromRight(infoVisible)
-            }}
+            // style={{
+            //   ...fromRight(infoVisible)
+            // }}
           >
             <h3 className="author__info-right-title">
               {"Анна Иванова"}
@@ -190,10 +190,10 @@ export default function Author() {
         </div>
 
         <div
-          ref={sliderRef}
-          style={{
-            ...fromBottom(sliderVisible)
-          }}
+          // ref={sliderRef}
+          // style={{
+          //   ...fromBottom(sliderVisible)
+          // }}
         >
           <InfiniteSlider slides={slides} />
         </div>
