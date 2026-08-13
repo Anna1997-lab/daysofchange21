@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="container">
         <div className="footer__top">
           <h2 className="logo">{"21 день\nновых привычек"}</h2>
-          <div className="footer__social">
+          <div className="footer__links">
             <button className="footer__button">
               <a
                 href="https://t.me/DaysOfChange21"

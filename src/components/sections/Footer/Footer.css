@@ -34,7 +34,7 @@
   text-align: center;
 }
 
-.footer__social {
+.footer__links {
   display: flex;
   gap: 50px;
 }
