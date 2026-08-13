@@ -1,122 +1,60 @@
-import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { slides } from "./slides";
 import InfiniteSlider from "./InfiniteSlider";
+import { useScrollReveal } from "../../common/hooks/useScrollReveal";
 
 import "./Author.css";
 
 export default function Author() {
-  // const [titleVisible, setTitleVisible] = useState(false);
-  // const [photoVisible, setPhotoVisible] = useState(false);
-  // const [infoVisible, setInfoVisible] = useState(false);
-  // const [sliderVisible, setSliderVisible] = useState(false);
+  const {
+    ref: titleRef,
+    visible: titleVisible,
+  } = useScrollReveal<HTMLHeadingElement>();
 
-  // const titleRef = useRef<HTMLHeadingElement>(null);
-  // const photoRef = useRef<HTMLImageElement>(null);
-  // const infoRef = useRef<HTMLDivElement>(null);
-  // const sliderRef = useRef<HTMLDivElement>(null);
+  const {
+    ref: photoRef,
+    visible: photoVisible,
+  } = useScrollReveal<HTMLImageElement>();
 
-  // useEffect(() => {
-  //   // const isDesktop = window.innerWidth >= 1440;
+  const {
+    ref: infoRef,
+    visible: infoVisible,
+  } = useScrollReveal<HTMLDivElement>();
 
-  //   // if (!isDesktop) {
-  //   //   setTitleVisible(true);
-  //   //   setPhotoVisible(true);
-  //   //   setInfoVisible(true);
-  //   //   setSliderVisible(true);
-
-  //   //   return;
-  //   // }
-
-  //   if (typeof window === "undefined" || !("IntersectionObserver" in window)) {
-  //     setTitleVisible(true);
-  //     setPhotoVisible(true);
-  //     setInfoVisible(true);
-  //     setSliderVisible(true);
-
-  //     return;
-  //   }
-
-  //   const observer = new IntersectionObserver(
-  //     (entries) => {
-  //       entries.forEach((entry) => {
-  //         if (!entry.isIntersecting) return;
-
-  //         if (entry.target === titleRef.current) setTitleVisible(true);
-  //         if (entry.target === photoRef.current) setPhotoVisible(true);
-  //         if (entry.target === infoRef.current) setInfoVisible(true);
-  //         if (entry.target === sliderRef.current) setSliderVisible(true);
-
-  //         observer.unobserve(entry.target);
-  //       });
-  //     }, {
-  //       threshold: 0.2,
-  //       rootMargin: "0px 0px -25px 0px",
-  //     }
-  //   );
-
-  //   if (titleRef.current) observer.observe(titleRef.current);
-  //   if (photoRef.current) observer.observe(photoRef.current);
-  //   if (infoRef.current) observer.observe(infoRef.current);
-  //   if (sliderRef.current) observer.observe(sliderRef.current);
-
-  //   return () => observer.disconnect();
-  // }, []);
-
-  // const baseStyle = {
-  //   transition: "opacity 0.75s ease, transform 0.75s ease",
-  // };
-
-  // const fromBottom = (visible: boolean) => ({
-  //   ...baseStyle,
-  //   opacity: visible ? 1 : 0,
-  //   transform: visible ? "translateY(0)" : "translateY(100px)",
-  // });
-
-  // const fromLeft = (visible: boolean) => ({
-  //   ...baseStyle,
-  //   opacity: visible ? 1 : 0,
-  //   transform: visible ? 'translateX(0)' : 'translateX(-100px)',
-  // });
-
-  // const fromRight = (visible: boolean) => ({
-  //   ...baseStyle,
-  //   opacity: visible ? 1 : 0,
-  //   transform: visible ? 'translateX(0)' : 'translateX(100px)',
-  // });
+  const {
+    ref: sliderRef,
+    visible: sliderVisible,
+  } = useScrollReveal<HTMLDivElement>();
 
   return (
-    <section className="author">
+    <section className="author" id="author">
       <div className="container">
         <h2
-          // ref={titleRef}
-          className="title"
-          // style={{
-          //   ...fromBottom(titleVisible)
-          // }}
+          className="title section-animka"
+          ref={titleRef}
+          data-reveal="bottom"
+          data-visible={titleVisible}
         >
           {"Автор проекта"}
         </h2>
 
         <div className="author__info">
           <Image
-            // ref={photoRef}
             src="/images/author.png"
             alt="author image"
             width={420}
             height={525}
-            className="author__info-img"
-            // style={{
-            //   ...fromLeft(photoVisible)
-            // }}
+            className="author__info-img section-animka"
+            ref={photoRef}
+            data-reveal="left"
+            data-visible={photoVisible}
           />
 
           <div
-            // ref={infoRef}
-            className="author__info-right"
-            // style={{
-            //   ...fromRight(infoVisible)
-            // }}
+            className="author__info-right section-animka"
+            ref={infoRef}
+            data-reveal="right"
+            data-visible={infoVisible}
           >
             <h3 className="author__info-right-title">
               {"Анна Иванова"}
@@ -190,10 +128,10 @@ export default function Author() {
         </div>
 
         <div
-          // ref={sliderRef}
-          // style={{
-          //   ...fromBottom(sliderVisible)
-          // }}
+          ref={sliderRef}
+          data-reveal="bottom"
+          data-visible={sliderVisible}
+          className="section-animka"
         >
           <InfiniteSlider slides={slides} />
         </div>

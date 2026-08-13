@@ -2,62 +2,18 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 import "./Thanks.css";
+import { useScrollReveal } from "../../common/hooks/useScrollReveal";
 
 export default function Thanks() {
-  // const [titleVisible, setTitleVisible] = useState(false);
-  // const [textVisible, setTextVisible] = useState(false);
+  const {
+    ref: titleRef,
+    visible: titleVisible,
+  } = useScrollReveal<HTMLHeadingElement>();
 
-  // const titleRef = useRef<HTMLDivElement>(null);
-  // const textRef = useRef<HTMLDivElement>(null);
-
-  // useEffect(() => {
-  //   // const isDesktop = window.innerWidth >= 1440;
-
-  //   // if (!isDesktop) {
-  //   //   setTitleVisible(true);
-  //   //   setTextVisible(true);
-
-  //   //   return;
-  //   // }
-
-  //   if (typeof window === "undefined" || !("IntersectionObserver" in window)) {
-  //     setTitleVisible(true);
-  //     setTextVisible(true);
-
-  //     return;
-  //   }
-
-  //   const observer = new IntersectionObserver(
-  //     (entries) => {
-  //       entries.forEach((entry) => {
-  //         if (!entry.isIntersecting) return;
-
-  //         if (entry.target === titleRef.current) setTitleVisible(true);
-  //         if (entry.target === textRef.current) setTextVisible(true);
-
-  //         observer.unobserve(entry.target);
-  //       });
-  //     }, {
-  //       threshold: 0.2,
-  //       rootMargin: "0px 0px -25px 0px",
-  //     }
-  //   );
-
-  //   if (titleRef.current) observer.observe(titleRef.current);
-  //   if (textRef.current) observer.observe(textRef.current);
-
-  //   return () => observer.disconnect();
-  // }, []);
-
-  // const baseStyle = {
-  //   transition: "opacity 0.75s ease, transform 0.75s ease",
-  // };
-
-  // const fromBottom = (visible: boolean) => ({
-  //   ...baseStyle,
-  //   opacity: visible ? 1 : 0,
-  //   transform: visible ? "translateY(0)" : "translateY(100px)",
-  // });
+  const {
+    ref: textRef,
+    visible: textVisible,
+  } = useScrollReveal<HTMLDivElement>();
 
   return (
     <section className="thanks" id="thanks">
@@ -70,11 +26,10 @@ export default function Thanks() {
       />
       <div className="container">
         <div
-          // ref={titleRef}
-          className="thanks__title-container"
-          style={{
-            // ...fromBottom(titleVisible)
-          }}
+          className="thanks__title-container section-animka"
+          ref={titleRef}
+          data-reveal="bottom"
+          data-visible={titleVisible}
         >
           <Image
             src="/images/heart.svg"
@@ -91,11 +46,10 @@ export default function Thanks() {
         </div>
 
         <div
-          // ref={textRef}
-          className="thanks__text-container"
-          // style={{
-          //   // ...fromBottom(textVisible)
-          // }}
+          className="thanks__text-container section-animka"
+          ref={textRef}
+          data-reveal="bottom"
+          data-visible={textVisible}
         >
           <div className="thanks__texts">
             <p className="thanks__text">

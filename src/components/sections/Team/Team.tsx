@@ -1,83 +1,37 @@
-import { useEffect, useRef, useState } from "react";
+import { useScrollReveal } from "../../common/hooks/useScrollReveal";
 import InfiniteSlider from "./InfiniteSlider";
 import { slidesDesktop, slidesTablet, slidesMobile } from "./slides";
+
 import "./Team.css";
 
 export default function Team() {
-  // const [titleVisible, setTitleVisible] = useState(false);
-  // const [teamCardsVisible, setTeamCardsVisible] = useState(false);
+  const {
+    ref: titleRef,
+    visible: titleVisible,
+  } = useScrollReveal<HTMLHeadingElement>();
 
-  // const titleRef = useRef<HTMLHeadingElement>(null);
-  // const teamCardsRef = useRef<HTMLDivElement>(null);
-
-  // useEffect(() => {
-  //   // const isDesktop = window.innerWidth >= 1440;
-
-  //   // if (!isDesktop) {
-  //   //   setTitleVisible(true);
-  //   //   setTeamCardsVisible(true);
-
-  //   //   return;
-  //   // }
-
-  //   if (typeof window === "undefined" || !("IntersectionObserver" in window)) {
-  //     setTitleVisible(true);
-  //     setTeamCardsVisible(true);
-
-  //     return;
-  //   }
-
-  //   const observer = new IntersectionObserver(
-  //     (entries) => {
-  //       entries.forEach((entry) => {
-  //         if (!entry.isIntersecting) return;
-
-  //         if (entry.target === titleRef.current) setTitleVisible(true);
-  //         if (entry.target === teamCardsRef.current) setTeamCardsVisible(true);
-
-  //         observer.unobserve(entry.target);
-  //       });
-  //     }, {
-  //       threshold: 0.2,
-  //       rootMargin: "0px 0px -25px 0px",
-  //     }
-  //   );
-
-  //   if (titleRef.current) observer.observe(titleRef.current);
-  //   if (teamCardsRef.current) observer.observe(teamCardsRef.current);
-
-  //   return () => observer.disconnect();
-  // }, []);
-
-  // const baseStyle = {
-  //   transition: "opacity 0.75s ease, transform 0.75s ease",
-  // };
-
-  // const fromBottom = (visible: boolean) => ({
-  //   ...baseStyle,
-  //   opacity: visible ? 1 : 0,
-  //   transform: visible ? "translateY(0)" : "translateY(100px)",
-  // });
+  const {
+    ref: teamCardsRef,
+    visible: teamCardsVisible,
+  } = useScrollReveal<HTMLDivElement>();
 
   return (
     <section className="team" id="team">
       <div className="container">
         <h2
-          // ref={titleRef}
-          className="title"
-          style={{
-            // ...fromBottom(titleVisible)
-          }}
+          className="title section-animka"
+          ref={titleRef}
+          data-reveal="bottom"
+          data-visible={titleVisible}
         >
           {"Благодарность"}
         </h2>
 
         <div
-          // ref={teamCardsRef}
-          className="team__slider-desktop"
-          // style={{
-          //   ...fromBottom(teamCardsVisible)
-          // }}
+          className="team__slider-desktop section-animka"
+          ref={teamCardsRef}
+          data-reveal="bottom"
+          data-visible={teamCardsVisible}
         >
           <InfiniteSlider slides={slidesDesktop} />
         </div>

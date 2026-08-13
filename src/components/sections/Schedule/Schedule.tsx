@@ -1,135 +1,58 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
+import { useScrollReveal } from "../../common/hooks/useScrollReveal";
 
 import "./Schedule.css";
 
 export default function Schedule() {
-  // const [titleVisible, setTitleVisible] = useState(false);
+  const {
+    ref: titleRef,
+    visible: titleVisible,
+  } = useScrollReveal<HTMLHeadingElement>();
 
-  // const [weekOneVisible, setWeekOneVisible] = useState(false);
-  // const [weekTwoVisible, setWeekTwoVisible] = useState(false);
-  // const [weekThreeVisible, setWeekThreeVisible] = useState(false);
+  const {
+    ref: weekOneRef,
+    visible: weekOneVisible,
+  } = useScrollReveal<HTMLHeadingElement>();
 
-  // const [listOneVisible, setListOneVisible] = useState(false);
-  // const [listTwoVisible, setListTwoVisible] = useState(false);
-  // const [listThreeVisible, setListThreeVisible] = useState(false);
+  const {
+    ref: weekTwoRef,
+    visible: weekTwoVisible,
+  } = useScrollReveal<HTMLHeadingElement>();
 
-  // const titleRef = useRef<HTMLHeadingElement>(null);
+  const {
+    ref: weekThreeRef,
+    visible: weekThreeVisible,
+  } = useScrollReveal<HTMLHeadingElement>();
 
-  // const weekOneRef = useRef<HTMLHeadingElement>(null);
-  // const weekTwoRef = useRef<HTMLHeadingElement>(null);
-  // const weekThreeRef = useRef<HTMLHeadingElement>(null);
+  const {
+    ref: listOneRef,
+    visible: listOneVisible,
+  } = useScrollReveal<HTMLUListElement>();
 
-  // const listOneRef = useRef<HTMLUListElement>(null);
-  // const listTwoRef = useRef<HTMLUListElement>(null);
-  // const listThreeRef = useRef<HTMLUListElement>(null);
+  const {
+    ref: listTwoRef,
+    visible: listTwoVisible,
+  } = useScrollReveal<HTMLUListElement>();
 
-  // const [windowInner, setWindowInner] = useState("isDesktop");
+  const {
+    ref: listThreeRef,
+    visible: listThreeVisible,
+  } = useScrollReveal<HTMLUListElement>();
 
-  // useEffect(() => {
-  //   // const isDesktop = window.innerWidth >= 1440;
-  //   // const isTablet = window.innerWidth >= 768;
+  const [isDesktop, setIsDesktop] = useState<boolean>(false);
 
-  //   if (window.innerWidth >= 1440) {
-  //     setWindowInner("isDesktop");
-  //   } else {
-  //     setWindowInner("isTablet");
-  //   }
-
-  //   // if (!isDesktop) {
-  //   //   setTitleVisible(true);
-
-  //   //   setWeekOneVisible(true);
-  //   //   setWeekTwoVisible(true);
-  //   //   setWeekThreeVisible(true);
-
-  //   //   setListOneVisible(true);
-  //   //   setListTwoVisible(true);
-  //   //   setListThreeVisible(true);
-
-  //   //   return;
-  //   // }
-
-  //   if (typeof window === "undefined" || !("IntersectionObserver" in window)) {
-  //     setTitleVisible(true);
-
-  //     setWeekOneVisible(true);
-  //     setWeekTwoVisible(true);
-  //     setWeekThreeVisible(true);
-
-  //     setListOneVisible(true);
-  //     setListTwoVisible(true);
-  //     setListThreeVisible(true);
-
-  //     return;
-  //   }
-
-  //   const observer = new IntersectionObserver(
-  //     (entries) => {
-  //       entries.forEach((entry) => {
-  //         if (!entry.isIntersecting) return;
-
-  //         if (entry.target === titleRef.current) setTitleVisible(true);
-
-  //         if (entry.target === weekOneRef.current) setWeekOneVisible(true);
-  //         if (entry.target === weekTwoRef.current) setWeekTwoVisible(true);
-  //         if (entry.target === weekThreeRef.current) setWeekThreeVisible(true);
-
-  //         if (entry.target === listOneRef.current) setListOneVisible(true);
-  //         if (entry.target === listTwoRef.current) setListTwoVisible(true);
-  //         if (entry.target === listThreeRef.current) setListThreeVisible(true);
-
-  //         observer.unobserve(entry.target);
-  //       });
-  //     }, {
-  //       threshold: 0.2,
-  //       rootMargin: "0px 0px -25px 0px",
-  //     }
-  //   );
-
-  //   if (titleRef.current) observer.observe(titleRef.current);
-
-  //   if (weekOneRef.current) observer.observe(weekOneRef.current);
-  //   if (weekTwoRef.current) observer.observe(weekTwoRef.current);
-  //   if (weekThreeRef.current) observer.observe(weekThreeRef.current);
-
-  //   if (listOneRef.current) observer.observe(listOneRef.current);
-  //   if (listTwoRef.current) observer.observe(listTwoRef.current);
-  //   if (listThreeRef.current) observer.observe(listThreeRef.current);
-
-  //   return () => observer.disconnect();
-  // }, []);
-
-  // const baseStyle = {
-  //   transition: "opacity 1s ease, transform 1s ease",
-  // };
-
-  // const fromBottom = (visible: boolean) => ({
-  //   ...baseStyle,
-  //   opacity: visible ? 1 : 0,
-  //   transform: visible ? "translateY(0)" : "translateY(100px)",
-  // });
-
-  // const fromLeft = (visible: boolean) => ({
-  //   ...baseStyle,
-  //   opacity: visible ? 1 : 0,
-  //   transform: visible ? 'translateX(0)' : 'translateX(-100px)',
-  // });
-
-  // const fromRight = (visible: boolean) => ({
-  //   ...baseStyle,
-  //   opacity: visible ? 1 : 0,
-  //   transform: visible ? 'translateX(0)' : 'translateX(100px)',
-  // });
+  useEffect(() => {
+    setIsDesktop(window.matchMedia("(min-width: 1440px)").matches);
+  }, []);
 
   return (
     <section className="schedule" id="schedule">
       <div className="container">
         <h2
-          // ref={titleRef}
-          className="title"
-          // style={{
-          //   ...fromBottom(titleVisible)
-          // }}
+          className="title section-animka"
+          ref={titleRef}
+          data-reveal="bottom"
+          data-visible={titleVisible}
         >
           {"Расписание проекта"}
         </h2>
@@ -162,39 +85,35 @@ export default function Schedule() {
           <div className="schedule__circle circle-3">{"III"}</div>
 
           <h3
-            // ref={weekOneRef}
-            className="schedule__week week-1"
-            // style={{
-            //   ...(windowInner === "isTablet" ? fromRight(weekOneVisible) : fromLeft(weekOneVisible))
-            // }}
+            className="schedule__week week-1 section-animka"
+            ref={weekOneRef}
+            data-reveal={isDesktop ? "left" : "right"}
+            data-visible={weekOneVisible}
           >
             {"Неделя 1"}
           </h3>
           <h3
-            // ref={weekTwoRef}
-            className="schedule__week week-2"
-            // style={{
-            //   ...fromRight(weekTwoVisible)
-            // }}
+            className="schedule__week week-2 section-animka"
+            ref={weekTwoRef}
+            data-reveal="right"
+            data-visible={weekTwoVisible}
           >
             {"Неделя 2"}
           </h3>
           <h3
-            // ref={weekThreeRef}
-            className="schedule__week week-3"
-            // style={{
-            //   ...(windowInner === "isTablet" ? fromRight(weekThreeVisible) : fromLeft(weekThreeVisible))
-            // }}
+            className="schedule__week week-3 section-animka"
+            ref={weekThreeRef}
+            data-reveal={isDesktop ? "left" : "right"}
+            data-visible={weekThreeVisible}
           >
             {"Неделя 3"}
           </h3>
 
           <ul
-            // ref={listOneRef}
-            className="schedule__list list-1"
-            // style={{
-            //   ...(windowInner === "isTablet" ? fromRight(listOneVisible) : fromLeft(listOneVisible))
-            // }}
+            className="schedule__list list-1 section-animka"
+            ref={listOneRef}
+            data-reveal={isDesktop ? "left" : "right"}
+            data-visible={listOneVisible}
           >
             <li className="schedule__list-item">
               {"Цели"}
@@ -211,11 +130,10 @@ export default function Schedule() {
           </ul>
 
           <ul
-            // ref={listTwoRef}
-            className="schedule__list list-2"
-            // style={{
-            //   ...fromRight(listTwoVisible)
-            // }}
+            className="schedule__list list-2 section-animka"
+            ref={listTwoRef}
+            data-reveal="right"
+            data-visible={listTwoVisible}
           >
             <li className="schedule__list-item">
               {"Ресурсные состояния"}
@@ -232,11 +150,10 @@ export default function Schedule() {
           </ul>
 
           <ul
-            // ref={listThreeRef}
-            className="schedule__list list-3"
-            // style={{
-            //   ...(windowInner === "isTablet" ? fromRight(listThreeVisible) : fromLeft(listThreeVisible))
-            // }}
+            className="schedule__list list-3 section-animka"
+            ref={listThreeRef}
+            data-reveal={isDesktop ? "left" : "right"}
+            data-visible={listThreeVisible}
           >
             <li className="schedule__list-item">
               {"План на будущее"}

@@ -54,6 +54,29 @@ body {
   text-align: center;
 }
 
+.section-animka[data-reveal="bottom"] {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.section-animka[data-reveal="left"] {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.section-animka[data-reveal="right"] {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.section-animka[data-visible="true"] {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
 @media (min-width: 768px) {
   .button {
     width: fit-content;
