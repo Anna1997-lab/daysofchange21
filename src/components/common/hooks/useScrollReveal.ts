@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 export function useScrollReveal<T extends HTMLElement>(
-  options: IntersectionObserverInit = { threshold: 0.5, rootMargin: "0px 0px -40px 0px" }
+  options: IntersectionObserverInit = { threshold: 0.25, rootMargin: "0px 0px -40px 0px" }
 ) {
   const [visible, setVisible] = useState(false);
   const ref = useRef<T>(null);

@@ -34,18 +34,17 @@ export default function ForWhom() {
 
         <div
           className="for-whom__cards"
+              ref={cardRef}
         >
           {cards.map((card, index) => (
             <div
               key={card.id}
-              ref={cardRef}
               className="section-animka"
               data-reveal="bottom"
               data-visible={cardVisible}
-              // style={{
-              //   transitionDelay: cardVisible ? `${index * 0.05}s` : "0s",
-              // }}
-              //
+              style={{
+                transitionDelay: cardVisible ? `${index * 0.05}s` : "0s",
+              }}
             >
               <Card
                 image={card.image}
