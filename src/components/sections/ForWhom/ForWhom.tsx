@@ -43,7 +43,7 @@ export default function ForWhom() {
               data-reveal="bottom"
               data-visible={cardVisible}
               style={{
-                transitionDelay: cardVisible ? `${index * 0.15}s` : "0s",
+                transitionDelay: cardVisible ? `${index * 0.05}s` : "0s",
               }}
             >
               <Card
