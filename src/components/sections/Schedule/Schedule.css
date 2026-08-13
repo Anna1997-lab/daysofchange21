@@ -1,5 +1,5 @@
 .schedule {
-  background-color: var(--secondaryBackground);
+  background-color: var(--secondaryBackground) !important;
 }
 
 .schedule .container {
@@ -31,7 +31,7 @@
   height: 56px;
   border-radius: 50%;
   border: 2px solid #0F1F3D;
-  background-color: #FFFFFF;
+  background-color: #FFFFFF !important;
 
   font-family: var(--font-playfair), serif;
   font-size: 24px;
@@ -45,7 +45,7 @@
 
   width: 288px;
   height: 8px;
-  background-color: #0E6B4F;
+  background-color: #0E6B4F !important;
   border-radius: 4px;
 }
 
@@ -183,7 +183,7 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 1.5;
-  color: rgba(15, 31, 61, 0.75);
+  color: rgba(15, 31, 61, 0.75) !important;
 }
 
 .schedule__list-item::after {
@@ -192,7 +192,7 @@
 
   width: 7px;
   height: 7px;
-  background-color: #B8911A;
+  background-color: #B8911A !important;
   border-radius: 50%;
 
   top: 7px;

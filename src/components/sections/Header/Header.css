@@ -9,7 +9,7 @@
   /* backdrop-filter: blur(20px) saturate(180%); */
   /* box-shadow: 0 2px 16px rgba(15, 31, 61, 0.1); */
 
-  
+
 
   padding: 20px 0;
 
@@ -23,7 +23,7 @@
 }
 
 .header .logo {
-  color: #C9A227;
+  color: #C9A227 !important;
 
   font-family: var(--font-playfair), serif;
   font-size: 18px;
@@ -39,12 +39,12 @@
 
 .header--on-hero .logo,
 .header--on-hero .logo a {
-  color: #0F1F3D;
+  color: #0F1F3D !important;
 }
 
 .header--on-dark .logo,
 .header--on-dark .logo a {
-  color: #C9A227;
+  color: #C9A227 !important;
 }
 
 .header__menu {
@@ -53,7 +53,7 @@
 
 .header__button {
   background-color: #C9A227;
-  color: #0F1F3D;
+  color: #0F1F3D !important;
 
   font-family: var(--font-inter), sans-serif;
   font-size: 12px;
@@ -108,7 +108,7 @@
     bottom: -10px;
     width: 100%;
     height: 2px;
-    background-color: #0E6B4F;
+    background-color: #0E6B4F !important;
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 300ms ease;

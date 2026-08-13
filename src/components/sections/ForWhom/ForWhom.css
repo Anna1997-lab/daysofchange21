@@ -1,5 +1,5 @@
 .for-whom {
-  background-color: var(--secondaryBackground);
+  background-color: var(--secondaryBackground) !important;
 }
 
 .for-whom .container {

@@ -46,14 +46,14 @@
   width: 6px;
   height: 6px;
   border-radius: 3px;
-  background-color: rgba(15, 31, 61, 0.2);
+  background-color: rgba(15, 31, 61, 0.2) !important;
   cursor: pointer;
   transition: width 600ms ease, background-color 600ms ease;
 }
 
 .team-slider__dot--active {
   width: 20px;
-  background-color: #C9A227;
+  background-color: #C9A227 !important;
 }
 
 @media (min-width: 768px) {

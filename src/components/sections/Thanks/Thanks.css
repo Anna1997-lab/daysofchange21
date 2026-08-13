@@ -1,7 +1,7 @@
 .thanks {
   position: relative;
   overflow: hidden;
-  background-color: var(--thirdBackground);
+  background-color: var(--thirdBackground) !important;
 }
 
 .thanks__bg {
@@ -37,7 +37,7 @@
 }
 
 .thanks__title {
-  color: #FFFFFF;
+  color: #FFFFFF !important;
 
   font-family: var(--font-playfair), serif;
   font-size: 24px;
@@ -60,7 +60,7 @@
 }
 
 .thanks__text {
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.75) !important;
 
   font-size: 17px;
   font-weight: 400;

@@ -13,8 +13,8 @@ html {
 }
 
 body {
-  background-color: var(--primaryBackground);
-  color: var(--primaryColor);
+  background-color: var(--primaryBackground) !important;
+  color: var(--primaryColor) !important;
 
   position: relative;
   min-width: 320px;
