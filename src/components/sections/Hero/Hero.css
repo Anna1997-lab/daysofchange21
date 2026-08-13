@@ -66,6 +66,10 @@
   animation: fadeUp 0.75s ease 0.3s both;
 }
 
+.hero .button a {
+  color: #0F1F3D;
+}
+
 .hero__subtitle-break {
   display: none;
 }
