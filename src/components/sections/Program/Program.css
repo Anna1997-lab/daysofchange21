@@ -42,7 +42,7 @@
   border-radius: 100px;
   border: 1px solid rgba(14, 107, 79, 0.2);
 
-  background-color: #FFFFFF !important;
+  background-color: #FFFFFF;
 
   font-size: 14px;
   font-weight: 500;
@@ -84,7 +84,7 @@
     border-radius: 100px;
     border: 1px solid rgba(14, 107, 79, 0.2);
 
-    background-color: #FFFFFF !important;
+    background-color: #FFFFFF;
 
     font-size: 15px;
     font-weight: 500;
