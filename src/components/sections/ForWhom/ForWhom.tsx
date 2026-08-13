@@ -45,6 +45,7 @@ export default function ForWhom() {
               // style={{
               //   transitionDelay: cardVisible ? `${index * 0.05}s` : "0s",
               // }}
+              //
             >
               <Card
                 image={card.image}
