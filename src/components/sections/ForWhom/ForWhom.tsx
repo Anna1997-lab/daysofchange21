@@ -42,9 +42,9 @@ export default function ForWhom() {
               className="section-animka"
               data-reveal="bottom"
               data-visible={cardVisible}
-              style={{
-                transitionDelay: cardVisible ? `${index * 0.05}s` : "0s",
-              }}
+              // style={{
+              //   transitionDelay: cardVisible ? `${index * 0.05}s` : "0s",
+              // }}
             >
               <Card
                 image={card.image}
