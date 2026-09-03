@@ -62,7 +62,7 @@ export default function Registration() {
         </div>
 
         <a
-          href="https://t.me/DaysOfChange21"
+          href="https://t.me/days21change2"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Наш Telegram"
